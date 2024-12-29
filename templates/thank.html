@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Sent Successfully</title>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #a72f2f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #ffffffde;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+        }
+
+        h1 {
+            font-family: 'Courgette', cursive;
+            color: #FF6347;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #333333;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .gift-box {
+            width: 80px;
+            height: 80px;
+            background-color: #FF6347;
+            border-radius: 15px;
+            position: relative;
+            animation: shake 1s ease-in-out infinite alternate;
+            margin-top: 20px;
+        }
+
+        .gift-box::before,
+        .gift-box::after {
+            content: '';
+            position: absolute;
+            background-color: #fff;
+            border-radius: 3px;
+        }
+
+        .gift-box::before {
+            width: 100%;
+            height: 10px;
+            top: 20px;
+        }
+
+        .gift-box::after {
+            height: 100%;
+            width: 10px;
+            left: 20px;
+        }
+
+        .button {
+            background-color: #FF6347;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 30px;
+            display: inline-block;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #ff4500;
+            transform: scale(1.05);
+        }
+
+        .download {
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(-10px);
+            }
+            100% {
+                transform: translateX(10px);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Email Sent Successfully!</h1>
+        <p>Your email has been sent to the recipients with the details you provided. Happy Holidays and Merry Christmas!</p>
+        <div class="gift-box"></div>
+        <a href="/" class="button">Go Back</a>
+        <div class="download">
+            <a href="/download_graph" class="button" download>Download Visualization</a>
+        </div>
+    </div>
+
+</body>
+</html>

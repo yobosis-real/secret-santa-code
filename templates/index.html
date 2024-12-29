@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Gift Exchange</title>
+    <style>
+        body {
+            background: url('https://images.pexels.com/photos/695971/pexels-photo-695971.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: rgb(0, 0, 0);
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px #004d00;
+        }
+
+        header img {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            width: 60px;
+        }
+
+        .container {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 650px;
+            background: rgba(0, 0, 0, 0.734);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: 2px solid #000000;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            font-size: 1.2rem;
+            margin: 10px 0 5px;
+            width: 100%;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #000000;
+        }
+
+        button {
+            background-color: #008000;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #004d00;
+        }
+
+        .add-recipient {
+            background-color: #b06b0bde;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .add-recipient:hover {
+            background-color: #008000;
+        }
+
+        .remove-recipient {
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        .remove-recipient:hover {
+            background-color: #cc0000;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #fff;
+        }
+
+        .christmas-image {
+            display: block;
+            margin: 0 auto 20px;
+            max-width: 100%;
+            border: 3px solid #ff0000;
+            border-radius: 10px;
+        }
+
+        .recipient-group {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .recipient-group label {
+            width: auto;
+        }
+
+        .decorative-elements {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .decorative-elements img {
+            width: 80px;
+            height: auto;
+        }
+
+        .form-element {
+            width: 100%;
+        }
+    </style>
+    <script>
+        function addRecipientField() {
+            const container = document.getElementById('recipient-container');
+            const div = document.createElement('div');
+            div.className = 'recipient-group';
+            div.innerHTML = `
+                <label for="recipient_name">Recipient Name:</label>
+                <input type="text" name="recipient_name" required placeholder="Recipient's name">
+                <label for="recipient_email">Recipient Email:</label>
+                <input type="email" name="recipient_email" required placeholder="Recipient's email address">
+                <label for="recipient_address">Recipient Address:</label>
+                <input type="text" name="recipient_address" required placeholder="Recipient's address">
+                <button type="button" class="remove-recipient" onclick="removeRecipientField(this)">Remove</button>
+            `;
+            container.appendChild(div);
+        }
+
+        function removeRecipientField(button) {
+            const container = document.getElementById('recipient-container');
+            container.removeChild(button.parentElement);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <img src="https://media0.giphy.com/media/fWW4IUsI8xjmwhFp2D/giphy.gif?cid=6c09b952hkeirq2mhrvedx5l6vxsvzyeioyxdazco78pssta&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Santa Hat">
+        <h1>Merry Match!</h1>
+    </header>
+
+    <div class="container"><font color="white">
+        <div class="decorative-elements">
+            <img src="https://usagif.com/wp-content/uploads/gif-christmas-tree-45.gif" alt="Ornament">
+            <img src="https://media.tenor.com/MMZ91nXAGU8AAAAM/ja.gif" alt="Ornament">
+        </div>
+        <form method="POST" action="http://127.0.0.1:5000/">
+            <div id="recipient-container">
+                <div class="recipient-group">
+                    <label for="recipient_name">Recipient Name:</label>
+                    <input type="text" name="recipient_name" required placeholder="Recipient's name">
+                    <label for="recipient_email">Recipient Email:</label>
+                    <input type="email" name="recipient_email" required placeholder="Recipient's email address">
+                    <label for="recipient_address">Recipient Address:</label>
+                    <input type="text" name="recipient_address" required placeholder="Recipient's address">
+                    <button type="button" class="remove-recipient" onclick="removeRecipientField(this)">Remove</button>
+                </div>
+            </div>
+            <button type="button" class="add-recipient" onclick="addRecipientField()">Add Another Recipient</button>
+            <br>
+            <div class="form-element">
+                <label for="max_price">Max Price:</label>
+                <input type="number" id="max_price" name="max_price" required placeholder="Maximum gift price" style="width:500px;">
+            </div>
+
+            <button type="submit">Send Email</button>
+        </form>
+        </font>
+    </div>
+
+    <footer>
+        <p>2024 Christmas Gift Exchange. Made with ❤️ for the holiday season!</p>
+    </footer>
+</body>
+</html>
